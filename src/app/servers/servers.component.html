@@ -1,0 +1,24 @@
+<app-server></app-server>
+<!-- getting the value by runtime default value is null-->
+<label>Passing & using data with Event Binding</label>
+<input type="text" class="form-control" (input)='OnUpdate($event)'>
+
+<!-- getting the value by runtime default value is "updatedName attribute value "-->
+<label>2 way Binding</label>
+<input type="text" class="form-control" [(ngModel)]='updatedName'>
+<!-- <h3>{{updatedName}}</h3> -->
+
+<!--Button as both property & event binding ; property -> timeout ; event binding -> click event;-->
+<button class="btn btn-danger" [disabled]="!activate" (click)="OnCreateServer()"> Binding </button>
+
+<p>{{CreateNewServer}}</p>
+
+
+<!--<button class="btn btn-primary" (click)="password =!password">Display details</button>-->
+<!-- Example for Directives ngIf ngFor(2nd part for finding index) ngStyle ngClass-->
+<button class="btn btn-primary" (click)="onToggle()">Display details</button>
+<p *ngIf="password">password is tuna</p>
+<div *ngFor="let getToggle of logs; let i = index" [ngStyle]="{color : i < 3 ? 'green': 'red'}"
+    [ngClass]="{Toggletext: i >= 4}">
+    {{getToggle}}
+</div>
